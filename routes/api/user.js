@@ -25,3 +25,4 @@ router.route("/authenticate")
    .post( userController.authenticate);
  
 module.exports = router;
+
