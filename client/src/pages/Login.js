@@ -31,7 +31,7 @@ class Login extends Component {
       })
         .then(res => {
           if(res.status === 200 ){
-             this.props.setUserState(res.data)
+          this.props.setUserState(res.data)
           }
         })
         .catch(err => console.log(err));
@@ -54,7 +54,7 @@ class Login extends Component {
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
-                placeholder="(required)"
+                placeholder="password (required)"
                 type="password"
               />
               

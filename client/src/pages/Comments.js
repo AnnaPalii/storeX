@@ -22,8 +22,8 @@ function Comments({ username }) {
       // set user after successful component mount
       setFormObject({
          body: "",
-         username: "", 
-         username})
+		 username: ""
+		})
 
       loadComments();
 
