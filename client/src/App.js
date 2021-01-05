@@ -37,7 +37,7 @@ function App() {
 			<Container>
 				<Switch>
 				<Route path='/' exact component={Home} />
-					<Route
+				<Route
 						exact
 						path='/login'
 						render={ props => (
@@ -48,7 +48,7 @@ function App() {
 							/>
 						)}
 					/>
-					<Route
+				<Route
 						exact
 						path='/signup'
 						render={ props => (
@@ -69,6 +69,7 @@ function App() {
 				</Switch>
 			</Container>
 			
+			{/*DOES NOT WORK  */}
         { userState.email ? <Redirect to="/comments" /> : <></>}
 		<Footer />
 		</Router>

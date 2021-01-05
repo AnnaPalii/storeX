@@ -30,6 +30,7 @@ class Login extends Component {
         password: this.state.password
       })
         .then(res => {
+          console.log("Set User")
           if(res.status === 200 ){
           this.props.setUserState(res.data)
           }

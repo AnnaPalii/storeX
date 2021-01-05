@@ -6,6 +6,7 @@ import { Input, FormBtn } from "../components/Form";
 
 class intakeForm extends Component {
 state = {
+    // Role is integer 
 role: "Guest/Host",
 item: "My item/Storage type",
 dateAvailable: "01/01/2021",
