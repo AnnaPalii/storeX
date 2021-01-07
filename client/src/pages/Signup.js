@@ -35,6 +35,7 @@ class Signup extends Component {
         .then(res => {
           if(res.status === 200 ){
             this.props.authenticate();
+            
           }
         })
         .catch(err => console.log(err.response.data));
