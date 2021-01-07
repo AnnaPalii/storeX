@@ -9,6 +9,9 @@ export default {
   },
   authenticateUser: function () {
     return axios.post("/api/user/authenticate/")
+  },
+  logoutUser: function () {
+    return axios.post("/api/user/logout")
   }
 
 };
