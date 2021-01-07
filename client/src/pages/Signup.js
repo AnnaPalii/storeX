@@ -35,7 +35,6 @@ class Signup extends Component {
         .then(res => {
           if(res.status === 200 ){
             this.props.authenticate();
-            return <Redirect to="/comments" />
           }
         })
         .catch(err => console.log(err.response.data));

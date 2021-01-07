@@ -10,15 +10,13 @@ return (
     <div className='hero-btns'>
         <Button
         className='btns'
-        buttonStyle='btn--outline'
+        buttonStyle='btn--primary'
         buttonSize='btn--large'
-        onClick={console.log('hey')}
         >Login</Button>
         <Button
         className='btns'
         buttonStyle='btn--primary'
         buttonSize='btn--large'
-        onClick={console.log('hey')}
         >SignUp</Button>
     </div>
     </div>
