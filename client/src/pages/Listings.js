@@ -50,6 +50,9 @@ function Listings({ username }) {
 			</Col>
 		</Row>,
 		<Row>
+				
+
+
 			<Col size='md-12'>
 				{comments.length ? (
 					<Table>
@@ -62,6 +65,7 @@ function Listings({ username }) {
 										<strong>{comment.username}:</strong> {comment.body}
 									</Link>
 								</Td>
+								<Td>{comment.zipcode}</Td>
 								<Td>{comment.date}</Td>
 								<Td>
                                 <Link to='/booking'>

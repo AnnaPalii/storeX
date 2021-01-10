@@ -11,7 +11,8 @@ function Comments({ username }) {
 	const [comments, setComments] = useState([]);
 	const [formObject, setFormObject] = useState({
 	body: "",
-	username: ""
+	username: "",
+	zipcode: ""
 	});
 	
    // get input element ref for focus
@@ -22,7 +23,8 @@ function Comments({ username }) {
       // set user after successful component mount
     setFormObject({
 		body: "",
-		username: ""})
+		zipcode: ""
+	})
 
     loadComments();
 
@@ -55,14 +57,15 @@ function Comments({ username }) {
 	function handleFormSubmit(event) {
 		event.preventDefault();
 		if (formObject.body) {
+			// console.log(formObject.zipcode);
 			API.saveComment({
 				body: formObject.body,
-				username: formObject.username,
+				zipcode: formObject.zipcode
 			})
             .then(loadComments)
             .then(() => setFormObject({
 			body: "",
-			username: ""
+			zipcode: ""
             }))
 		    .catch((err) => console.log(err));
 		}
@@ -73,10 +76,12 @@ function Comments({ username }) {
 			<Col size='md-12'>
 				<form>
 					<Col size='sm-12'>
-						<ForwardRefInput ref={ titleInputElRef } value={formObject.body} onChange={handleInputChange} name='body' placeholder='your comment here' />
+						<ForwardRefInput ref={ titleInputElRef } value={formObject.body} onChange={handleInputChange} name='body' placeholder='your space description here' />
+						<ForwardRefInput ref={ titleInputElRef } value={formObject.zipcode} onChange={handleInputChange} name='zipcode' placeholder='your zip here' />
 					</Col>
 					<FormBtn
 						disabled={!formObject.body}
+						disabled={!formObject.zipcode}
 						onClick={handleFormSubmit}>
 						Submit your listing
 					</FormBtn>
@@ -96,6 +101,7 @@ function Comments({ username }) {
 										<strong>{comment.username}:</strong> {comment.body}
 									</Link>
 								</Td>
+								<Td>{comment.zipcode}</Td>
 								<Td>{comment.date}</Td>
 								<Td>
 									<DeleteBtn onClick={() => deleteComment(comment._id)} />
