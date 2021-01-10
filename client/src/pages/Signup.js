@@ -98,7 +98,7 @@ class Signup extends Component {
         </Row>
         {/* redirect on authenticated */}
         {this.props.authenticated &&
-        this.state.role == "Host" 
+        this.state.role === "Host" 
         ? <Redirect to='/comments'/>: <div></div>}
 
       </Container>
