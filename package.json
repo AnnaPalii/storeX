@@ -27,6 +27,7 @@
     "express": "^4.16.3",
     "express-session": "^1.17.1",
     "if-env": "^1.0.4",
+    "moment": "^2.29.1",
     "mongodb": "^3.6.3",
     "mongoose": "^5.3.16",
     "morgan": "^1.10.0",

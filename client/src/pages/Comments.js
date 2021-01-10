@@ -102,7 +102,9 @@ function Comments({ username }) {
 									</Link>
 								</Td>
 								<Td>{comment.zipcode}</Td>
-								<Td>{comment.date}</Td>
+								<Td>
+									{new Date(comment.date).toDateString()}
+									</Td>
 								<Td>
 									<DeleteBtn onClick={() => deleteComment(comment._id)} />
 								</Td>

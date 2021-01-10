@@ -3,6 +3,7 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
+import Moment from 'moment';
 
 
 function Listings({ username }) {
@@ -43,7 +44,7 @@ function Listings({ username }) {
 			<Col size='md-12'>
 				<form>
 					<Col size='sm-12'>
-                    <p>ALL LISTINGS</p>
+                    <h3>ALL LISTINGS</h3>
 					</Col>
 
 				</form>
@@ -56,17 +57,28 @@ function Listings({ username }) {
 			<Col size='md-12'>
 				{comments.length ? (
 					<Table>
+					<tr>
+					<th scope="col">Host Name</th>
+					<th scope="col">Description</th>
+					<th scope="col">Zip code</th>
+					<th scope="col">Date Posted</th>
+					<th scope="col">Your Action</th>
+					</tr>
 						{comments.map(comment => (
 							<Tr key={comment._role}>
+								<Td>{comment.username}</Td>
 								<Td>
 									<Link
 										to={"/comments/" + comment._id}
 										style={{ textAlign: "left", display: "block" }}>
-										<strong>{comment.username}:</strong> {comment.body}
+										{comment.body}
 									</Link>
 								</Td>
 								<Td>{comment.zipcode}</Td>
-								<Td>{comment.date}</Td>
+								<Td>
+									
+									{new Date(comment.date).toDateString()}
+									</Td>
 								<Td>
                                 <Link to='/booking'>
                                     Book Space 
