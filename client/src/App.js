@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import userAPI from "./utils/userAPI";
 import ProtectedRoute from "./components/ProtectedRoute"
 import Home from "./pages/Home";
@@ -59,16 +60,19 @@ function App() {
 						)}
 					/>
                <ProtectedRoute exact path={["/", "/comments"]}>
-                  <Comments {...userState} />
+               <Comments {...userState} />
                </ProtectedRoute>
                <ProtectedRoute exact path='/comments/:id' >
-                  <Comment {...userState} />
+               <Comment {...userState} />
                </ProtectedRoute>
 					<Route component={NoMatch} />
 				</Switch>
 			</Container>
-         { userState.email ? <Redirect to="/comments" /> : <></>}
+         { userState.email && userState.role == "Host" ? <Redirect to="/comments" /> : <></>}
+		 <Footer />
 		</Router>
+		
+
 	);
 }
 

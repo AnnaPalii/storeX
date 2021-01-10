@@ -78,7 +78,7 @@ video {
 
 .home,
 .services,
-.products,
+.listings,
 .sign-up {
     display: flex;
     height: 90vh;
@@ -96,7 +96,7 @@ video {
     font-size: 100px;
 }
 
-.products {
+.listings {
     background-image: url('/images/img-1.jpg');
     background-position: center;
     background-size: fill;

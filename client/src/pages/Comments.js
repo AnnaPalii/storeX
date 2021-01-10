@@ -10,25 +10,24 @@ function Comments({ username }) {
 	// Setting our component's initial state
 	const [comments, setComments] = useState([]);
 	const [formObject, setFormObject] = useState({
-      body: "",
-      username: ""
-   });
-   
+	body: "",
+	username: ""
+	});
+	
    // get input element ref for focus
    const titleInputElRef = useRef();
 
 	// Load all comments and store them with setComments
 	useEffect(() => {
       // set user after successful component mount
-      setFormObject({
-         body: "",
-         username: ""})
+    setFormObject({
+		body: "",
+		username: ""})
 
-      loadComments();
+    loadComments();
 
       // focus on titleInputEl if ref exists
-      titleInputElRef.current.focus()
-   }, [username]);
+    titleInputElRef.current.focus()}, [username]);
    
 
 	// Loads all comments and sets them to comments
@@ -79,7 +78,7 @@ function Comments({ username }) {
 					<FormBtn
 						disabled={!formObject.body}
 						onClick={handleFormSubmit}>
-						Submit Comment
+						Submit your listing
 					</FormBtn>
 				</form>
 			</Col>
