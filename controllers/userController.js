@@ -22,7 +22,10 @@ module.exports = {
 			email: req.body.email,
 			password: req.body.password
 		})
-      .then(() => {res.redirect(307, "/api/user/login") })
+      .then((mongoRes) => 
+      { 
+      res.redirect(307, "/api/user/login") 
+      })
       .catch((err) => { res.status(401).json(err) });
    },
    

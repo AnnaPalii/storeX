@@ -22,8 +22,7 @@ function Comments({ username }) {
       // set user after successful component mount
       setFormObject({
          body: "",
-		 username: ""
-		})
+         username: ""})
 
       loadComments();
 
@@ -63,10 +62,10 @@ function Comments({ username }) {
 			})
             .then(loadComments)
             .then(() => setFormObject({
-               body: "",
-               username: ""
+			body: "",
+			username: ""
             }))
-				.catch((err) => console.log(err));
+		    .catch((err) => console.log(err));
 		}
 	}
 

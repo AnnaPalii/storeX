@@ -6,20 +6,19 @@ import Comment from "./pages/Comment";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
-import Head from "./components/Head";
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Navbar from "./components/Navbar";
 import userAPI from "./utils/userAPI";
 import ProtectedRoute from "./components/ProtectedRoute"
 import Home from "./pages/Home";
 
+
 function App() {
 	const [userState, setUserState] = useState({});
 
-	useEffect(() => { 
-		// auth user on first render
-		authenticate() 
-	}, []);
+   useEffect(() => { 
+	   // auth user on first render
+      authenticate() 
+   }, []);
 
 	//user authentication
 	function authenticate() {
@@ -37,7 +36,7 @@ function App() {
 			<Container>
 				<Switch>
 				<Route path='/' exact component={Home} />
-				<Route
+					<Route
 						exact
 						path='/login'
 						render={ props => (
@@ -48,7 +47,7 @@ function App() {
 							/>
 						)}
 					/>
-				<Route
+					<Route
 						exact
 						path='/signup'
 						render={ props => (
@@ -59,19 +58,16 @@ function App() {
 							/>
 						)}
 					/>
-                <ProtectedRoute exact path={["/", "/comments"]}>
-                <Comments {...userState} />
-                </ProtectedRoute>
-                <ProtectedRoute exact path='/comments/:id' >
-                <Comment {...userState} />
-                </ProtectedRoute>
+               <ProtectedRoute exact path={["/", "/comments"]}>
+                  <Comments {...userState} />
+               </ProtectedRoute>
+               <ProtectedRoute exact path='/comments/:id' >
+                  <Comment {...userState} />
+               </ProtectedRoute>
 					<Route component={NoMatch} />
 				</Switch>
 			</Container>
-			
-			{/*DOES NOT WORK  */}
-        { userState.email ? <Redirect to="/comments" /> : <></>}
-		<Footer />
+         { userState.email ? <Redirect to="/comments" /> : <></>}
 		</Router>
 	);
 }
