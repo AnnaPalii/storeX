@@ -12,6 +12,8 @@ import userAPI from "./utils/userAPI";
 import ProtectedRoute from "./components/ProtectedRoute"
 import Home from "./pages/Home";
 import Listings from "./pages/Listings";
+import Dashboard from "./pages/Dashboard";
+import Booking from "./pages/Booking";
 
 function App() {
 	const [userState, setUserState] = useState({});
@@ -62,13 +64,25 @@ function App() {
 			<ProtectedRoute exact path={["/", "/comments"]}>
 			<Comments {...userState} />
 			</ProtectedRoute>
+
 			<ProtectedRoute exact path='/comments/:id' >
 			<Comment {...userState} />
 			</ProtectedRoute>
+
 			<ProtectedRoute exact path='/listings' >
 			<Listings {...userState} />
 			</ProtectedRoute>
+
+			<ProtectedRoute exact path='/dashboard' >
+			<Dashboard {...userState} />
+			</ProtectedRoute>
+
+			<ProtectedRoute exact path='/booking' >
+			<Booking {...userState} />
+			</ProtectedRoute>
+
 			<Route component={NoMatch} />
+
 				</Switch>
 			</Container>
          { userState.role === "Host" ? <Redirect to="/comments" /> : <Redirect to="/listings" />}

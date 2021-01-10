@@ -1,15 +1,18 @@
-// THIS PAGE IS FOR "HOST" USERS TO TRACK THEIR EARNINGS/OTHER IDEAS
+// THIS PAGE IS FOR "GUEST" USERS TO BOOK SPACE
 
 import React, { Component } from "react";
+// import Datapicker from "../components/Datapicker";
 import userAPI from "../utils/userAPI";
 import {  Redirect, Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 
-export const Dashboard = () => {
+export const Booking = () => {
     return (
-            <h3>Dashboard Page</h3>
+            <h3>Booking Page</h3>
+
+
     )
 };
 
-export default Dashboard;
+export default Booking;

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 import { ForwardRefInput, FormBtn } from "../components/Form";
+import Dashboard from "./Dashboard";
 
 function Comments({ username }) {
 	// Setting our component's initial state
@@ -72,6 +73,13 @@ function Comments({ username }) {
 	}
 
 	return <>
+	<Row>
+	<Link to='/dashboard' >
+            <i class="fas fa-chart-area">View my Dashboard </i>
+    </Link>
+
+	</Row>
+
 		<Row>
 			<Col size='md-12'>
 				<form>
