@@ -5,31 +5,32 @@ import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 import { ForwardRefInput, FormBtn } from "../components/Form";
+import Dashboard from "./Dashboard";
 
 function Comments({ username }) {
 	// Setting our component's initial state
 	const [comments, setComments] = useState([]);
 	const [formObject, setFormObject] = useState({
-      body: "",
-      username: ""
-   });
-   
+	body: "",
+	username: "",
+	zipcode: ""
+	});
+	
    // get input element ref for focus
    const titleInputElRef = useRef();
 
 	// Load all comments and store them with setComments
 	useEffect(() => {
       // set user after successful component mount
-      setFormObject({
-         body: "",
-		 username: ""
-		})
+    setFormObject({
+		body: "",
+		zipcode: ""
+	})
 
-      loadComments();
+    loadComments();
 
       // focus on titleInputEl if ref exists
-      titleInputElRef.current.focus()
-   }, [username]);
+    titleInputElRef.current.focus()}, [username]);
    
 
 	// Loads all comments and sets them to comments
@@ -57,30 +58,40 @@ function Comments({ username }) {
 	function handleFormSubmit(event) {
 		event.preventDefault();
 		if (formObject.body) {
+			// console.log(formObject.zipcode);
 			API.saveComment({
 				body: formObject.body,
-				username: formObject.username,
+				zipcode: formObject.zipcode
 			})
             .then(loadComments)
             .then(() => setFormObject({
-               body: "",
-               username: ""
+			body: "",
+			zipcode: ""
             }))
-				.catch((err) => console.log(err));
+		    .catch((err) => console.log(err));
 		}
 	}
 
 	return <>
+	<Row>
+	<Link to='/dashboard' >
+            <i class="fas fa-chart-area">View my Dashboard </i>
+    </Link>
+
+	</Row>
+
 		<Row>
 			<Col size='md-12'>
 				<form>
 					<Col size='sm-12'>
-						<ForwardRefInput ref={ titleInputElRef } value={formObject.body} onChange={handleInputChange} name='body' placeholder='your comment here' />
+						<ForwardRefInput ref={ titleInputElRef } value={formObject.body} onChange={handleInputChange} name='body' placeholder='your space description here' />
+						<ForwardRefInput ref={ titleInputElRef } value={formObject.zipcode} onChange={handleInputChange} name='zipcode' placeholder='your zip here' />
 					</Col>
 					<FormBtn
 						disabled={!formObject.body}
+						disabled={!formObject.zipcode}
 						onClick={handleFormSubmit}>
-						Submit Comment
+						Submit your listing
 					</FormBtn>
 				</form>
 			</Col>
@@ -98,7 +109,10 @@ function Comments({ username }) {
 										<strong>{comment.username}:</strong> {comment.body}
 									</Link>
 								</Td>
-								<Td>{comment.date}</Td>
+								<Td>{comment.zipcode}</Td>
+								<Td>
+									{new Date(comment.date).toDateString()}
+									</Td>
 								<Td>
 									<DeleteBtn onClick={() => deleteComment(comment._id)} />
 								</Td>

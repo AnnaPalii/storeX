@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import userAPI from "../utils/userAPI";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -30,7 +29,6 @@ class Login extends Component {
         password: this.state.password
       })
         .then(res => {
-          console.log("Set User")
           if(res.status === 200 ){
           this.props.setUserState(res.data)
           }

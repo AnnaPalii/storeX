@@ -18,10 +18,11 @@ module.exports = {
   },
   create: function(req, res) {
      // if no user on the session
+     console.log(req);
      if(!req.user) return res.status(401).end('user isnt authenticated')
 
      db.Comment
-      .create({...req.body, email: req.user.email})
+      .create({...req.body, username: req.user.username,})
       .then(({_id}) => db.User.findOneAndUpdate({_id: req.user._id}, { $push: { comments: _id } }, { new: true }))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
