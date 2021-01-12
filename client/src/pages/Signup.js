@@ -8,6 +8,7 @@ class Signup extends Component {
   state = {
     email: "1@1",
     username: "one",
+    role:"Host",
     password: "1",
     passwordConf: "1"
   };
@@ -28,6 +29,7 @@ class Signup extends Component {
       userAPI.signup({
         username: this.state.username,
         email: this.state.email,
+        role:this.state.role,
         password: this.state.password,
         passwordConf: this.state.passwordConf,
 
@@ -62,6 +64,12 @@ class Signup extends Component {
                 placeholder="email (required)"
               />
               <Input
+                value={this.state.role}
+                onChange={this.handleInputChange}
+                name="role"
+                placeholder="Guest or Host(required)"
+              />
+              <Input
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
@@ -74,15 +82,14 @@ class Signup extends Component {
                 name="passwordConf"
                 placeholder="(required)"
                 type="password"
-              />
-              
+              />              
               <FormBtn
                 // disabled={!(this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
               >
                 signup
               </FormBtn>
-              <Link to="/">
+              <Link to="/login">
                <FormBtn> Login </FormBtn>
              </Link>
             </form>
@@ -90,8 +97,9 @@ class Signup extends Component {
           
         </Row>
         {/* redirect on authenticated */}
-        {this.props.authenticated ? <Redirect to='/comments'/>: <div></div>}
-
+        {this.props.authenticated &&
+        this.state.role === "Host" 
+        ? <Redirect to='/comments'/>: <div></div>}
 
       </Container>
     );

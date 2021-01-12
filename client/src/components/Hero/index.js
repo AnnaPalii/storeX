@@ -12,11 +12,6 @@ return (
         className='btns'
         buttonStyle='btn--primary'
         buttonSize='btn--large'
-        >Login</Button>
-        <Button
-        className='btns'
-        buttonStyle='btn--primary'
-        buttonSize='btn--large'
         >SignUp</Button>
     </div>
     </div>

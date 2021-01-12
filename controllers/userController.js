@@ -9,6 +9,7 @@ module.exports = {
          _id: req.user._id,
          username: req.user.username,
          email: req.user.email,
+         role: req.user.role,
          comments: req.user.comments
       });
    },
@@ -19,10 +20,14 @@ module.exports = {
    signup: function (req, res) {
 		db.User.create({
          username: req.body.username,
-			email: req.body.email,
+         email: req.body.email,
+         role: req.body.role,
 			password: req.body.password
 		})
-      .then(() => {res.redirect(307, "/api/user/login") })
+      .then((mongoRes) => 
+      { 
+      res.redirect(307, "/api/user/login") 
+      })
       .catch((err) => { res.status(401).json(err) });
    },
    
@@ -42,10 +47,8 @@ module.exports = {
                _id: req.user._id,
                username: req.user.username,
                email: req.user.email,
+               role: req.user.role,
                comments: req.user.comments
          })
    }
 }
- 
-
- 
