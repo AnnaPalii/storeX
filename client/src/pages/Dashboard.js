@@ -9,6 +9,8 @@ import { Input, FormBtn } from "../components/Form";
 export const Dashboard = () => {
     return (
             <h3>Dashboard Page</h3>
+
+            
     )
 };
 

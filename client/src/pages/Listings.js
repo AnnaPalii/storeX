@@ -3,7 +3,6 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
-import Moment from 'moment';
 
 
 function Listings({ username }) {
