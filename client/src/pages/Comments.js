@@ -79,6 +79,11 @@ function Comments({ username }) {
     </Link>
 
 	</Row>
+	<Row>
+		<header style={{ textAlign: "center", fontSize:"70px", display: "block", padding: 20 }}>
+			Post Your Space
+		</header>
+	</Row>
 
 		<Row>
 			<Col size='md-12'>
