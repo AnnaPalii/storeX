@@ -6,6 +6,10 @@ video {
     z-index: -1;
 }
 
+h2{
+    color: white;
+}
+
 .hero-container {
     height: 50vh;
     width: 100%;
@@ -33,10 +37,12 @@ video {
 
 .hero-btns {
     margin-top: 32px;
+    background-color: #8b94a3;
 }
 
 .hero-btns .btn {
     margin: 6px;
+    
 }
 
 .fa-play-circle {
@@ -67,7 +73,10 @@ video {
 
     .btn {
     width: 100%;
+    
     }
+
+   
 }
 * {
     box-sizing: border-box;
