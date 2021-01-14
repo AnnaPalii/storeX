@@ -79,6 +79,11 @@ function Comments({ username }) {
     </Link>
 
 	</Row>
+	<Row>
+		<header style={{ textAlign: "center", fontSize:"70px", display: "block", padding: 20 }}>
+			Post Your Space
+		</header>
+	</Row>
 
 		<Row>
 			<Col size='md-12'>
@@ -100,12 +105,18 @@ function Comments({ username }) {
 			<Col size='md-12'>
 				{comments.length ? (
 					<Table>
+						<Tr>
+							<Td>Description </Td>
+						  <Td>Zip code </Td>
+						 <Td> Date Posted</Td>
+						  <Td>Delete Post </Td>
+						  </Tr>
 						{comments.map(comment => (
 							<Tr key={comment._id}>
 								<Td>
 									<Link
 										to={"/comments/" + comment._id}
-										style={{ textAlign: "left", display: "block" }}>
+										style={{ textAlign: "left", display: "block", padding: 20 }}>
 										<strong>{comment.username}:</strong> {comment.body}
 									</Link>
 								</Td>
