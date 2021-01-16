@@ -83,7 +83,7 @@ function App() {
 			<Dashboard {...userState} />
 			</ProtectedRoute>
 
-			<ProtectedRoute exact path='/booking' >
+			<ProtectedRoute exact path='/bookings/:id' >
 			<Booking {...userState} />
 			</ProtectedRoute>
 

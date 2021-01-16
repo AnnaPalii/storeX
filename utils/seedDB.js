@@ -1,51 +1,49 @@
 const mongoose = require("mongoose");
 const db = require("../models");
-const { mongoOptions } = require("./config")
 
-// This file empties the Books collection and inserts the books below
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mern");
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/storexdb",
-   mongoOptions
-);
-
-const userSeed = 
-   {
-      username: "Admin",
-      email: "admin@contact.us",
-      password: "1"
-   }
-;
-const commentsSeeds = [
-   {
-      body: "🚀 initial seed",
-      username: "Admin"
-   },
-   {
-      body: "👾 another",
-      username: "Admin"
-   },
-
+const userSeed = [
+    {
+        email: "user1@email.com",
+        username: "dude",
+        role: "guest",
+        password: "1234"
+    },
+    {
+        email: "user2@email.com",
+        username: "dudette",
+        role: "admin",
+        password: "1234"
+    },
+    {
+        email: "user3@email.com",
+        username: "madeline",
+        role: "admin",
+        password: "1234"
+    },
+    {
+        email: "user4@email.com",
+        username: "johnny",
+        role: "guest",
+        password: "1234"
+    },
+    {
+        email: "user5@email.com",
+        username: "suzy",
+        role: "admin",
+        password: "1234"
+    }
 ];
 
-// remove all comments
-db.Comment.deleteMany({})
-// remove all users
-  .then(() => db.User.deleteMany({}))
-  // add user
-  .then(() => db.User.create(userSeed))
-  // add comments seeds
-  .then((user) => db.Comment.create(commentsSeeds[0])
-      // add comment ref to user
-      .then(({_id}) => db.User.findOneAndUpdate({_id: user._id}, { $push: { comments: _id } }, { new: true }))
-  )
-  .then((user) => db.Comment.create(commentsSeeds[1])
-      // add comment ref to user
-      .then(({_id}) => db.User.findOneAndUpdate({_id: user._id}, { $push: { comments: _id } }, { new: true }))
-  )
-  .then(() => {
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+db.User
+    .remove({})
+        .then(() => db.User.collection.insertMany(userSeed))
+        .then(data => {
+            console.log(data.result.length + " records inserted!");
+            process.exit(0);
+        })
+        .catch(err => {
+            console.log(error);
+            process.exit(1);    
+        })

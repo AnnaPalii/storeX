@@ -1,13 +1,14 @@
-# 📦 M-E-R-N + passport box
+# @icn-house StoreX
+<!-- Badges -->
+![React](https://img.shields.io/badge/-React-blue) 
+![HTML](https://img.shields.io/badge/HTML-red) 
+![CSS](https://img.shields.io/badge/CSS-purple) 
+![JavaScript](https://img.shields.io/badge/JavaScript-yellow) 
 
-<!-- ##### :earth_africa: [live]() on heroku -->
+<!-- ##### :earth_africa: [live](https://storexapp.herokuapp.com/) on heroku -->
 
-## 🍽 Use
--   Fork, or clone and copy what you need
 
 ### 🗃️ Folder structure
-
-
 ```
 .
 ├── _assets                <- # project management assets
@@ -21,13 +22,19 @@
 │   └── src                <- # font end source (can also place static files to be packed with webpack)
 │       ├── App.js         <- # 🚀 react app entry point 
 │       ├── components     <- # reusable components
+│       │   ├── Button
 │       │   ├── Card
+│       │   ├── Cloudinary
+│       │   ├── Datapicker 
 │       │   ├── DeleteBtn
+│       │   ├── Footer
 │       │   ├── Form
 │       │   ├── Grid
-│       │   ├── Head
+│       │   ├── Hero
+│       │   ├── Navbar
 │       │   ├── **ProtectedRoute** <- # protected routes (HOC)
-│       │   └── Table
+│       │   ├── Table
+│       │   └── UserStatus
 │       ├── index.js
 │       ├── pages             <- # page components
 │       ├── style.css
@@ -42,6 +49,7 @@
 ├── models                    <- # Schemas
 │   ├── Comment.js
 │   ├── User.js
+│   ├── Status.js
 │   └── index.js
 ├── routes                    <- # routes (only API routes)
 │   ├── api

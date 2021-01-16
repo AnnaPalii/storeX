@@ -28,6 +28,7 @@ const UserSchema = new mongoose.Schema({
      ref: "Comment"
    }
  ]
+ 
   // ..anything else you want on your user
 });
 

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 
-
+// pass the _id of the user
 function Listings({ username }) {
 	// Setting our component's initial state
 	const [comments, setComments] = useState([]);
@@ -35,9 +35,6 @@ function Listings({ username }) {
 			.catch((err) => console.log(err));
 	}
 
-
-
-
 	return <>
 		<Row>
 			<Col size='md-12'>
@@ -51,7 +48,6 @@ function Listings({ username }) {
 		</Row>,
 		<Row>
 				
-
 
 			<Col size='md-12'>
 				{comments.length ? (
@@ -79,7 +75,10 @@ function Listings({ username }) {
 									{new Date(comment.date).toDateString()}
 									</Td>
 								<Td>
-                                <Link to='/booking'>
+								<Link to=
+								{{pathname:'/bookings/'+comment._id,
+								state:{id:comment._id,
+								body:comment.body}}}>
                                     Book Space 
                                     <i class="fas fa-file-signature"></i>
                                     </Link>

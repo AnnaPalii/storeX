@@ -7,6 +7,8 @@ import { Table, Tr, Td } from "../components/Table";
 import { ForwardRefInput, FormBtn } from "../components/Form";
 import Dashboard from "./Dashboard";
 
+//prop drill the userID as well so in our API call we can just simply findOne({ _id: UserId})
+//then every comment associated with that id can showcase
 function Comments({ username }) {
 	// Setting our component's initial state
 	const [comments, setComments] = useState([]);
