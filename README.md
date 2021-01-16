@@ -1,4 +1,4 @@
-# @icn-house StoreX
+# StoreX
 <!-- Badges -->
 ![React](https://img.shields.io/badge/-React-blue) 
 ![HTML](https://img.shields.io/badge/HTML-red) 
