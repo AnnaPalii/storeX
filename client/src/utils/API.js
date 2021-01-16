@@ -16,5 +16,9 @@ export default {
   // Saves a comment to the database
   saveComment: function(commentData) {
     return axios.post("/api/comments", commentData);
-  }
+  },
+    // Gets the comment with the given id
+    getListing: function(id) {
+      return axios.get("/api/comments/" + id);
+    }
 };

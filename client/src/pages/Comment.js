@@ -29,7 +29,7 @@ function Comment() {
         </Row>
         <Row>
           <Col size="md-2">
-            <Link className="text-dark" to="/comments">← Back to all comments</Link>
+            <Link className="text-dark" to="/comments">← Back to all listings</Link>
           </Col>
         </Row>
       </Container>
