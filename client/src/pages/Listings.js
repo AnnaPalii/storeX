@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 
-
+// pass the _id of the user
 function Listings({ username }) {
 	// Setting our component's initial state
 	const [comments, setComments] = useState([]);
