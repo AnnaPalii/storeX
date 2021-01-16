@@ -6,6 +6,7 @@ import Comment from "./pages/Comment";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
+import AboutUs from "./pages/aboutus";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import userAPI from "./utils/userAPI";
@@ -39,6 +40,11 @@ function App() {
 			<Container>
 				<Switch>
 				<Route path='/' exact component={Home} />
+				
+				<Route exact path={["/", "/aboutus"]}>
+				<AboutUs />
+				</Route>
+
 					<Route
 						exact
 						path='/login'
