@@ -43,7 +43,7 @@ function Listings({ username }) {
 			<Col size='md-12'>
 				<form>
 					<Col size='sm-12'>
-                    <h3>ALL LISTINGS</h3>
+                    <header style={{ textAlign: "center", fontSize:"70px", display: "block", padding: 20 }}> Available Listings</header>
 					</Col>
 
 				</form>
@@ -61,7 +61,7 @@ function Listings({ username }) {
 					<th scope="col">Description</th>
 					<th scope="col">Zip code</th>
 					<th scope="col">Date Posted</th>
-					<th scope="col">Your Action</th>
+					<th scope="col">Click to Book</th>
 					</tr>
 						{comments.map(comment => (
 							<Tr key={comment._role}>
