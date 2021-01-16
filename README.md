@@ -1,11 +1,11 @@
-# StoreX
+# :houses: StoreX
 <!-- Badges -->
 ![React](https://img.shields.io/badge/-React-blue) 
 ![HTML](https://img.shields.io/badge/HTML-red) 
 ![CSS](https://img.shields.io/badge/CSS-purple) 
 ![JavaScript](https://img.shields.io/badge/JavaScript-yellow) 
 
-<!-- ##### :earth_africa: [live](https://storexapp.herokuapp.com/) on heroku -->
+##### :globe_with_meridians: [live](https://storexapp.herokuapp.com/) on heroku
 
 
 ### 🗃️ Folder structure
