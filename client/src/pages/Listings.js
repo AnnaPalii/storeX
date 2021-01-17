@@ -13,17 +13,13 @@ function Listings({ username }) {
 	username: ""
 	});
 	
-
-
 	// Load all comments and store them with setComments
 	useEffect(() => {
       // set user after successful component mount
     setFormObject({
 		body: "",
 		username: ""})
-
     loadComments();
-
       // focus on titleInputEl if ref exists
     }, [username]);
    
@@ -80,7 +76,7 @@ function Listings({ username }) {
 								state:{id:comment._id,
 								body:comment.body}}}>
                                     Book Space 
-                                    <i class="fas fa-file-signature"></i>
+                                    <i className="fas fa-file-signature"></i>
                                     </Link>
 								</Td>
 							</Tr>

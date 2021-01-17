@@ -5,7 +5,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import './index.css';
 
-class Datepicker extends Component {
+export default class Datepicker extends Component {
   constructor(props) {
     super(props);
     this.state ={
@@ -13,14 +13,6 @@ class Datepicker extends Component {
       endDate: null
     }
   }
-
-  alertStartDate = () => {
-    alert(this.state.startDate);
-  }
-  alertEndDate = () => {
-    alert(this.state.endDate);
-  }
-
 
   render() {
     return (
@@ -35,12 +27,7 @@ class Datepicker extends Component {
         onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
         />
         <br/>
-        <br/>
-        <button onClick={this.alertStartDate}>Click Me for Start Date</button>
-        <button onClick={this.alertEndDate}>Click Me for End Date</button>
       </div>
     );
   }
-}
-
-export default Datepicker;
+};

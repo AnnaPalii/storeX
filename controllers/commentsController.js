@@ -16,6 +16,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findByUser: function(req, res) {
+    console.log(req.params.username)
+   db.Comment
+     .findByUser(req.params.username)
+     .then(dbModel => res.json(dbModel))
+     .catch(err => res.status(422).json(err));
+ },
   create: function(req, res) {
      // if no user on the session
      console.log(req);

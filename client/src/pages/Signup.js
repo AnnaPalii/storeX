@@ -55,32 +55,30 @@ class Signup extends Component {
                 value={this.state.username}
                 onChange={this.handleInputChange}
                 name="username"
-                placeholder="username (required)"
+                placeholder="Username (required)"
               />
               <Input
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 name="email"
-                placeholder="email (required)"
+                placeholder="Email (required)"
               />
-              <Input
-                value={this.state.role}
-                onChange={this.handleInputChange}
-                name="role"
-                placeholder="Guest or Host(required)"
-              />
+              <select value={this.state.role} onChange={this.handleInputChange}>
+              <option value="Guest">Guest</option>
+              <option value="Host">Host</option>
+              </select>
               <Input
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
-                placeholder="(required)"
+                placeholder="Password (required)"
                 type="password"
               />
               <Input
                 value={this.state.passwordConf}
                 onChange={this.handleInputChange}
                 name="passwordConf"
-                placeholder="(required)"
+                placeholder="Password (required)"
                 type="password"
               />              
               <FormBtn

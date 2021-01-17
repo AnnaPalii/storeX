@@ -9,6 +9,10 @@ export default {
   getComment: function(id) {
     return axios.get("/api/comments/" + id);
   },
+   // Gets the comment with the given username
+  getUserComment: function(username) {
+    return axios.get("/api/comments/" + username);
+  },
   // Deletes the comment with the given id
   deleteComment: function(id) {
     return axios.delete("/api/comments/" + id);
