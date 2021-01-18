@@ -79,12 +79,7 @@ function Comments({ username }) {
 	}
 
 	return <>
-	<Row>
-	<Link to='/dashboard' >
-            <i class="fas fa-chart-area">View my Dashboard </i>
-    </Link>
 
-	</Row>
 	<Row>
 		<header style={{ textAlign: "center", fontSize:"70px", display: "block", padding: 20 }}>
 			Post Your Space
@@ -131,7 +126,7 @@ function Comments({ username }) {
 								<Td>
 									{new Date(comment.date).toDateString()}
 								</Td>
-								<Td> {comment.status.length} </Td>
+								<Td> <Link to='/dashboard' >{comment.status.length} </Link></Td>
 								<Td>
 									<DeleteBtn onClick={() => deleteComment(comment._id)} />
 								</Td>
