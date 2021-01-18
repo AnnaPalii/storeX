@@ -75,8 +75,7 @@ function Listings({ username }) {
 								{{pathname:'/bookings/'+comment._id,
 								state:{id:comment._id,
 								body:comment.body}}}>
-                                    Book Space 
-                                    <i className="fas fa-file-signature"></i>
+                                    Request Booking 
                                     </Link>
 								</Td>
 							</Tr>

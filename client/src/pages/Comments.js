@@ -64,7 +64,6 @@ function Comments({ username }) {
 	function handleFormSubmit(event) {
 		event.preventDefault();
 		if (formObject.body) {
-			// console.log(formObject.zipcode);
 			API.saveComment({
 				body: formObject.body,
 				zipcode: formObject.zipcode
