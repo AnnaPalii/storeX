@@ -14,7 +14,7 @@ function Booking (props) {
     const [formObject, setFormObject] = useState({
       startDate: "",
       endDate: "",
-      requestingUser: "",
+      requestingUser: props.username,
       requestingUserId: props._id,
       requested: ""
       });
@@ -38,10 +38,13 @@ function Booking (props) {
     booking.status.push(formObject);
     
     // save to database
+    API.updateListing(booking._id, booking)
+    .then((res)=> { console.log(res); })
+    .catch((err)=> { console.log(err); });
   }
 
   function setBookingDates(dates){
-    setFormObject({...formObject, ...dates});
+    setFormObject({ ...formObject, ...dates, "requested": true });
   }
 
 // Function that saves star and end date here, and pass it to child 

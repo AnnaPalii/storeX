@@ -38,7 +38,11 @@ function Comments({ username }) {
 	// Loads all comments and sets them to comments
 	function loadComments() {
 		API.getComments()
-			.then((res) => setComments(res.data))
+			.then((res) => {
+				const listings = res.data.filter(listing => listing.username == username);
+				console.log(res);
+				setComments(listings)
+			})
 			.catch((err) => console.log(err));
 	}
 
@@ -111,6 +115,7 @@ function Comments({ username }) {
 						<Td>Description</Td>
 						<Td>Zip code</Td>
 						<Td>Date Posted</Td>
+						<Td>Requests</Td>
 						<Td>Delete Post</Td>
 						</Tr>
 						{comments.map(comment => (
@@ -125,7 +130,8 @@ function Comments({ username }) {
 								<Td>{comment.zipcode}</Td>
 								<Td>
 									{new Date(comment.date).toDateString()}
-									</Td>
+								</Td>
+								<Td> {comment.status.length} </Td>
 								<Td>
 									<DeleteBtn onClick={() => deleteComment(comment._id)} />
 								</Td>
