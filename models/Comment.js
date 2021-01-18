@@ -14,7 +14,7 @@ const commentSchema = new Schema({
 			endDate: {type: Date},
 			requestingUser: {type: String},
 			requestingUserId: {type: String},
-			requested: {type: Boolean, default: false }
+			requested: {type: String, default: "Available" }
 		}
 
 	]

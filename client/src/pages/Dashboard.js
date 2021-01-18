@@ -9,58 +9,81 @@ import { DropdownButton, Dropdown } from 'react-bootstrap';
 
 function Dashboard ({ username }) {
     const [requests, setRequests] = useState([]); 
-    const [value,setValue]=useState({
-        title:""
-    });
+    const [origListings, setListings] = useState([]);
+    // const [status,setStatus]=useState({
+    //     title:""
+    // });
 
 // Load all comments and store them with setComments
 useEffect(() => {
     // set user after successful component mount
     setRequests({
-      body: "",
-      zipcode: ""
-  })
+      body: "", zipcode: ""})
 
-  loadComments();
+loadComments();
 
     // focus on titleInputEl if ref exists
-  }, [username]);
+}, [username]);
 
 
 
-	// Loads all listings and sets them
+	// Loads Host Listings 
     function loadComments() {
         API.getComments()
             .then((res) => {
                 const listings = res.data.filter(listing => listing.username === username);
-                console.log(listings);
-                let requests = [];
+                // console.log(listings);
+                setListings(listings);
+                let requests = {};
                 for(let l in listings){
                     for (let s in listings[l]['status']){
                         let status = listings[l]['status'][s];
                         let request = { 
                             'body': listings[l]['body'], 
+                            'listingId': listings[l]['_id'],
                             ...status
                         }
-                        requests.push(request);
+                        requests[status._id.toString()] = request;
                     }
                 }
                 setRequests(requests);
-                console.log(requests);
+                // console.log(requests);
             })
             .catch((err) => console.log(err));
     }
 
-   function handleSelect(e){
-        setValue({"title": e})
-        console.log(e);
+   function handleSelect(key, e, id){
+        console.log(requests);
+        // setStatus({"title": e});
+        // console.log(e);
+        // console.log(id);
+        let status = requests[id];
+        status["requested"] = key;
+        let req = {};
+        req[id] = status;
+        setRequests({...requests, ...req});
+        let listing = origListings.filter(ol => ol._id == [status['listingId']])[0];
+        for (let s in listing['status']){
+            if (listing['status'][s]['_id'] == id){
+                listing['status'][s]['requested'] = status['requested'];
+                break;
+            }
+        }
+    
+        console.log(listing);
+        API.updateListing(listing._id, listing)
+        .then((res)=>{console.log(res);})
+        .catch((err)=> {console.log(err);});
+
     }
+
+
 
     return <>
         <Row><h3>Dashboard Page</h3></Row>
         <Row>
 			<Col size='md-12'>
-				{requests.length ? (
+				{Object.keys(requests).length ? (
 					<Table>
 						<Tr>
 						<Td>Description</Td>
@@ -69,14 +92,14 @@ useEffect(() => {
 						<Td>End Date</Td>
 						<Td>Answer to Request</Td>
 						</Tr>
-						{requests.map(requests => (
-							<Tr key={requests._id}>
-								<Td>{requests.body}</Td>
-                                <Td>{requests.requestingUser}</Td>
-								<Td>{new Date(requests.startDate).toDateString()}</Td>
-                                <Td>{new Date(requests.endDate).toDateString()}</Td>
+						{Object.values(requests).map(request => (
+							<Tr key={request._id}>
+								<Td>{request.body}</Td>
+                                <Td>{request.requestingUser}</Td>
+								<Td>{new Date(request.startDate).toDateString()}</Td>
+                                <Td>{new Date(request.endDate).toDateString()}</Td>
                                 <Td>
-                                { value.title ? value.title : <DropdownButton id="dropdown-basic-default" title="Options" onSelect={handleSelect}>
+                                { request.requested != "Requested" ? request.requested : <DropdownButton id="dropdown-basic-default" title="Options" onSelect={(key, event) => handleSelect(key, event, request._id)}>
                                 <Dropdown.Item eventKey="Accepted">Accept</Dropdown.Item>
                                 <Dropdown.Item eventKey="Declined">Decline</Dropdown.Item>
                                 </DropdownButton>}

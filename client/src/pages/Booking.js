@@ -43,7 +43,7 @@ function Booking (props) {
   }
 
   function setBookingDates(dates){
-    setFormObject({ ...formObject, ...dates, "requested": true });
+    setFormObject({ ...formObject, ...dates, "requested": "Requested" });
   }
 
 // Function that saves star and end date here, and pass it to child 
