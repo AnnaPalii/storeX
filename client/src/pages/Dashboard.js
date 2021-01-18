@@ -10,19 +10,17 @@ import { DropdownButton, Dropdown } from 'react-bootstrap';
 function Dashboard ({ username }) {
     const [requests, setRequests] = useState([]); 
     const [origListings, setListings] = useState([]);
-    // const [status,setStatus]=useState({
-    //     title:""
-    // });
-
+ 
 // Load all comments and store them with setComments
 useEffect(() => {
     // set user after successful component mount
     setRequests({
-      body: "", zipcode: ""})
+    body: "", 
+    zipcode: ""})
 
-loadComments();
-
+    loadComments();
     // focus on titleInputEl if ref exists
+
 }, [username]);
 
 
@@ -52,11 +50,10 @@ loadComments();
             .catch((err) => console.log(err));
     }
 
+
+// Fetch status id and update status in DB
    function handleSelect(key, e, id){
         console.log(requests);
-        // setStatus({"title": e});
-        // console.log(e);
-        // console.log(id);
         let status = requests[id];
         status["requested"] = key;
         let req = {};
