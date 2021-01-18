@@ -10,7 +10,7 @@ import { DropdownButton, Dropdown } from 'react-bootstrap';
 function Dashboard ({ username }) {
     const [requests, setRequests] = useState([]); 
     const [value,setValue]=useState({
-        title:"Reply to Guest"
+        title:""
     });
 
 // Load all comments and store them with setComments
@@ -52,8 +52,8 @@ useEffect(() => {
     }
 
    function handleSelect(e){
-  setValue(e)
-  console.log(e);
+        setValue({"title": e})
+        console.log(e);
     }
 
     return <>
@@ -76,10 +76,10 @@ useEffect(() => {
 								<Td>{new Date(requests.startDate).toDateString()}</Td>
                                 <Td>{new Date(requests.endDate).toDateString()}</Td>
                                 <Td>
-                                <DropdownButton id="dropdown-basic-default" title={value.title} onSelect={handleSelect}>
+                                { value.title ? value.title : <DropdownButton id="dropdown-basic-default" title="Options" onSelect={handleSelect}>
                                 <Dropdown.Item eventKey="Accepted">Accept</Dropdown.Item>
                                 <Dropdown.Item eventKey="Declined">Decline</Dropdown.Item>
-                                </DropdownButton>
+                                </DropdownButton>}
                                 </Td>
 								<Td></Td>
                                 <Td></Td>
