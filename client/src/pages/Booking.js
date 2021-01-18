@@ -6,9 +6,19 @@ import { Col, Row, Container } from "../components/Grid";
 import Card from "../components/Card";
 import API from "../utils/API";
 import userAPI from "../utils/userAPI";
+import { button } from "react";
 
-function Booking () {
+function Booking (props) {
+    console.log(props);
     const [booking, setBooking] = useState({});
+    const [formObject, setFormObject] = useState({
+      startDate: "",
+      endDate: "",
+      requestingUser: "",
+      requestingUserId: props._id,
+      requested: ""
+      });
+
     const match = useRouteMatch('/bookings/:id');
     console.log(match);
 
@@ -21,20 +31,18 @@ function Booking () {
     })
       .catch(err => console.log(err));
     }, [match.params.id])
+  
+  function book_store(event){
+    console.log(formObject);
+    console.log(booking);
+    booking.status.push(formObject);
+    
+    // save to database
+  }
 
-// Search for current user name 
-    useEffect(() => { 
-      authenticate() 
-    }, []);
-
-//user authentication
-	function authenticate() {
-		return userAPI.authenticateUser()
-			.then(({ data }) => {
-			console.log('user:', data );
-			})
-			.catch((err) => console.log('registered user:', err.response));
-	}
+  function setBookingDates(dates){
+    setFormObject({...formObject, ...dates});
+  }
 
 // Function that saves star and end date here, and pass it to child 
   
@@ -42,15 +50,15 @@ function Booking () {
     return <>
             <h3>Booking Page</h3>
         <Container fluid>
-          <p>{booking._id}</p>
+        <p></p>
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
             <Card heading={booking._id}>
               {booking.body}
-              <Datapicker />
+              <Datapicker setBookingDates={setBookingDates} />
               <br/>
-              <button>Request to book this listing</button>
+              <button onClick={book_store}>Request to book this listing</button>
             </Card>
             </article>
           </Col>
