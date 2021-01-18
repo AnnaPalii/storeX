@@ -16,6 +16,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findByUser: function(req, res) {
+    console.log(req.params.username)
+   db.Comment
+     .findByUser(req.params.username)
+     .then(dbModel => res.json(dbModel))
+     .catch(err => res.status(422).json(err));
+ },
   create: function(req, res) {
      // if no user on the session
      console.log(req);
@@ -28,10 +35,14 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
+    console.log(req.body);
+    console.log(req.params.id);
      db.Comment
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => {
+        console.log(err);
+        res.status(422).json(err)});
   },
   remove: function(req, res) {
      db.Comment

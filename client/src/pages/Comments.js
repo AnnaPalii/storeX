@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 import { ForwardRefInput, FormBtn } from "../components/Form";
-import Dashboard from "./Dashboard";
+
 
 //prop drill the userID as well so in our API call we can just simply findOne({ _id: UserId})
 //then every comment associated with that id can showcase
@@ -33,12 +33,16 @@ function Comments({ username }) {
 
       // focus on titleInputEl if ref exists
     titleInputElRef.current.focus()}, [username]);
-   
+    console.log(username)
 
 	// Loads all comments and sets them to comments
 	function loadComments() {
 		API.getComments()
-			.then((res) => setComments(res.data))
+			.then((res) => {
+				const listings = res.data.filter(listing => listing.username == username);
+				console.log(res);
+				setComments(listings)
+			})
 			.catch((err) => console.log(err));
 	}
 
@@ -60,7 +64,6 @@ function Comments({ username }) {
 	function handleFormSubmit(event) {
 		event.preventDefault();
 		if (formObject.body) {
-			// console.log(formObject.zipcode);
 			API.saveComment({
 				body: formObject.body,
 				zipcode: formObject.zipcode
@@ -75,12 +78,7 @@ function Comments({ username }) {
 	}
 
 	return <>
-	<Row>
-	<Link to='/dashboard' >
-            <i class="fas fa-chart-area">View my Dashboard </i>
-    </Link>
 
-	</Row>
 	<Row>
 		<header style={{ textAlign: "center", fontSize:"70px", display: "block", padding: 20 }}>
 			Post Your Space
@@ -108,11 +106,12 @@ function Comments({ username }) {
 				{comments.length ? (
 					<Table>
 						<Tr>
-							<Td>Description </Td>
-						  <Td>Zip code </Td>
-						 <Td> Date Posted</Td>
-						  <Td>Delete Post </Td>
-						  </Tr>
+						<Td>Description</Td>
+						<Td>Zip code</Td>
+						<Td>Date Posted</Td>
+						<Td>Requests</Td>
+						<Td>Delete Post</Td>
+						</Tr>
 						{comments.map(comment => (
 							<Tr key={comment._id}>
 								<Td>
@@ -125,7 +124,8 @@ function Comments({ username }) {
 								<Td>{comment.zipcode}</Td>
 								<Td>
 									{new Date(comment.date).toDateString()}
-									</Td>
+								</Td>
+								<Td> <Link to='/dashboard' >{comment.status.length} </Link></Td>
 								<Td>
 									<DeleteBtn onClick={() => deleteComment(comment._id)} />
 								</Td>

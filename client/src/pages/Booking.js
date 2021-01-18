@@ -5,38 +5,84 @@ import { Link, useRouteMatch } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Card from "../components/Card";
 import API from "../utils/API";
+import Button from 'react-bootstrap/Button'
 
-export const Booking = props => {
-    const [booking, setBooking] = useState({})
+
+function Booking (props) {
+    console.log(props);
+    const [booking, setBooking] = useState({});
+    const [formObject, setFormObject] = useState({
+      startDate: "",
+      endDate: "",
+      requestingUser: props.username,
+      requestingUserId: props._id,
+      requested: ""
+      });
+
     const match = useRouteMatch('/bookings/:id');
-
     console.log(match);
-    useEffect(() => {
-        API.getListing(match.params.id)
-          .then(res => {
-            console.log(res.data);
-             setBooking(res.data);
-        })
-          .catch(err => console.log(err));
-      }, [match.params.id])
 
+// Search for selected listing 
+    useEffect(() => {
+    API.getListing(match.params.id)
+      .then(res => {
+        console.log(res.data);
+        setBooking(res.data);
+    })
+      .catch(err => console.log(err));
+    }, [match.params.id])
+  
+  function book_store(event){
+    console.log(formObject);
+    console.log(booking);
+    booking.status.push(formObject);
+    
+    // save to database
+    API.updateListing(booking._id, booking)
+    .then((res)=> { console.log(res); })
+    .catch((err)=> { console.log(err); });
+
+    // show Success Massage
+    alertSuccess ();
+  }
+
+  function  alertSuccess () {
+    alert("Your message was sent to Host");
+
+  }
+
+
+  function setBookingDates(dates){
+    setFormObject({ ...formObject, ...dates, "requested": "Requested" });
+  }
+
+// Function that saves star and end date here, and pass it to child 
+  
 
     return <>
-            <h3>Booking Page</h3>
+
+          <Col size='sm-12'>
+          <header style={{ textAlign: "center", fontSize:"70px", display: "block", padding: 20 }}> Booking Page</header>
+					</Col>
         <Container fluid>
+        <p></p>
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-            <Card heading={booking.username}>
+            <Card heading={booking._id}>
               {booking.body}
-              <Datapicker />
+              <Datapicker setBookingDates={setBookingDates} />
+              <br/>
+              <Button variant="primary" size="lg" onClick={book_store} href="/listings">
+              Request to book this listing
+              </Button>
             </Card>
             </article>
           </Col>
         </Row>
         <Row>
           <Col size="md-2">
-            <Link className="text-dark" to="/comments">← Back to all listings</Link>
+            <Link className="text-dark" to="/listings">← Back to all listings</Link>
           </Col>
         </Row>
       </Container>

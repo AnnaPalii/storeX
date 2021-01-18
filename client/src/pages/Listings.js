@@ -3,6 +3,7 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
+import Button from 'react-bootstrap/Button'
 
 // pass the _id of the user
 function Listings({ username }) {
@@ -13,22 +14,18 @@ function Listings({ username }) {
 	username: ""
 	});
 	
-
-
 	// Load all comments and store them with setComments
 	useEffect(() => {
       // set user after successful component mount
     setFormObject({
 		body: "",
 		username: ""})
-
     loadComments();
-
       // focus on titleInputEl if ref exists
     }, [username]);
    
 
-	// Loads all comments and sets them to comments
+	// Loads all comments, set them and show status/request booking 
 	function loadComments() {
 		API.getComments()
 			.then((res) => setComments(res.data))
@@ -38,17 +35,17 @@ function Listings({ username }) {
 	return <>
 		<Row>
 			<Col size='md-12'>
-				<form>
+				<section>
 					<Col size='sm-12'>
                     <header style={{ textAlign: "center", fontSize:"70px", display: "block", padding: 20 }}> Available Listings</header>
 					</Col>
-
-				</form>
+					<Button href="/dashboard" variant="secondary" size="lg">
+					See my requests for booking</Button>
+				</section>
+				
 			</Col>
 		</Row>,
 		<Row>
-				
-
 			<Col size='md-12'>
 				{comments.length ? (
 					<Table>
@@ -79,8 +76,7 @@ function Listings({ username }) {
 								{{pathname:'/bookings/'+comment._id,
 								state:{id:comment._id,
 								body:comment.body}}}>
-                                    Book Space 
-                                    <i class="fas fa-file-signature"></i>
+                                    Request Booking 
                                     </Link>
 								</Td>
 							</Tr>

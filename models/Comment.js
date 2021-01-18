@@ -8,9 +8,15 @@ const commentSchema = new Schema({
 	date: { type: Date, default: Date.now },
 	status: [
 		{
-			type: Schema.Types.ObjectId,
-			ref: "Status"
+			// type: Schema.Types.ObjectId,
+			// ref: "Status"
+			startDate: { type: Date},
+			endDate: {type: Date},
+			requestingUser: {type: String},
+			requestingUserId: {type: String},
+			requested: {type: String, default: "Available" }
 		}
+
 	]
 });
 
