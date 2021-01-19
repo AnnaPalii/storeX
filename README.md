@@ -12,7 +12,7 @@
 
 ### Description
 
- StorX is a community oriented platform to simplify your life. We will connect you with the perfect host that will make sure your belongings are cared for and well kept.
+ StoreX is a community oriented platform to simplify your life. We will connect you with the perfect host that will make sure your belongings are cared for and well kept.
 
  ![homepage](storex2.png)
 
@@ -33,5 +33,6 @@
  Datapicker for date selection 
  and 
  Cloudinary for image upload
+
 
 
