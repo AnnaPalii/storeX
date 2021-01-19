@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const { mongoOptions, sessionOptions } = require("./utils/config");
 const routes = require("./routes");
 const app = express();
+const expfile = require("express-fileupload");
 const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./utils/passport");
@@ -12,9 +13,19 @@ const logger = require("morgan");
 
 const PORT = process.env.PORT || 3001;
 
+app.use(expfile({ useTempFiles: true }))
+const cloudinary = require("cloudinary").v2
+
+cloudinary.config({
+	cloud_name: "storexapp",
+	api_key: "275742714789443",
+	api_secret: "U2pqFQLNciYoBofe09aVb-9QWoU"
+})
+
 // logging (development)
 app.use(logger("dev"));
 
+// app.use()
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
