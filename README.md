@@ -5,70 +5,33 @@
 ![CSS](https://img.shields.io/badge/CSS-purple) 
 ![JavaScript](https://img.shields.io/badge/JavaScript-yellow) 
 
-##### :globe_with_meridians: [live]     (https://storexapp.herokuapp.com/) on heroku
+## Welcome to StorX, the app to find your perfect storage solution
+
+##### :globe_with_meridians: Deployed App: [live]    (https://storexapp.herokuapp.com/) on heroku
 
 
-<iframe src="https://drive.google.com/file/d/1wba56eOnwXaYFjrVg_OS28xgDW3ehCA7/preview" width="640" height="480"></iframe>
+### Description
+
+ StorX is a community oriented platform to simplify your life. We will connect you with the perfect host that will make sure your belongings are cared for and well kept.
+
+ ![homepage](storex2.png)
+
+ You can choose your host based on your preferences (i.e. location, lighting, temperature, etc.) Whether you’re an art collector, a wine connoisseur, or just our eclectic collector, we will match your treasures to “a home away from home”. 
+
+ Host View: add a description of your available space for rent
+
+ ![gif](storexgif.gif)
+
+ Your precious mementos will be safely stored away so you will have space for happy moments
 
 
+ ### Technology
+
+ We built the app using Javascript and React. We built out authentication using protected routes so users are required to sign in or log in to view certain pages. 
+
+ We connected to third party APIS-
+ Datapicker for date selection 
+ and 
+ Cloudinary for image upload
 
 
-
-
-### 🗃️ Folder structure
-```
-.
-├── _assets                <- # project management assets
-├── client                 <- # front end react app                        
-│   ├── README.md          <- # create react app readme
-│   ├── package.json       <- # create react app dev server (hot reloading)
-│   ├── public             <- # front end static files 
-│   │   ├── favicon.ico
-│   │   ├── index.html
-│   │   └── manifest.json
-│   └── src                <- # font end source (can also place static files to be packed with webpack)
-│       ├── App.js         <- # 🚀 react app entry point 
-│       ├── components     <- # reusable components
-│       │   ├── Button
-│       │   ├── Card
-│       │   ├── Cloudinary
-│       │   ├── Datapicker 
-│       │   ├── DeleteBtn
-│       │   ├── Footer
-│       │   ├── Form
-│       │   ├── Grid
-│       │   ├── Hero
-│       │   ├── Navbar
-│       │   ├── **ProtectedRoute** <- # protected routes (HOC)
-│       │   ├── Table
-│       │   └── UserStatus
-│       ├── index.js
-│       ├── pages             <- # page components
-│       ├── style.css
-│       └── **utils**         <- # front end utils
-│           ├── API.js        <- # coments routes front end api
-│           ├── useLogPath.js <- # custom hook for development - logs current path
-│           └── userAPI.js    <- # user routes front end api
-├────────────────────────── **☝️ client 👇 server**
-├── controllers               <- # routes function
-│   ├── commentsController.js
-│   └── userController.js
-├── models                    <- # Schemas
-│   ├── Comment.js
-│   ├── User.js
-│   ├── Status.js
-│   └── index.js
-├── routes                    <- # routes (only API routes)
-│   ├── api
-│   │   ├── comments.js
-│   │   ├── index.js
-│   │   └── user.js
-│   └── index.js
-├── utils                     <- # server helper functions 
-│   ├── config.js             <- # global config (put anything you like)
-│   ├── passport.js           <- # passport setup
-│   └── seedDB.js             <- # seed script
-├── package.json
-├── readme.md
-└── server.js                 <- # 🚀 entry point
-```
