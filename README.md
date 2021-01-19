@@ -5,7 +5,14 @@
 ![CSS](https://img.shields.io/badge/CSS-purple) 
 ![JavaScript](https://img.shields.io/badge/JavaScript-yellow) 
 
-##### :globe_with_meridians: [live](https://storexapp.herokuapp.com/) on heroku
+##### :globe_with_meridians: [live]     (https://storexapp.herokuapp.com/) on heroku
+
+
+<iframe src="https://drive.google.com/file/d/1wba56eOnwXaYFjrVg_OS28xgDW3ehCA7/preview" width="640" height="480"></iframe>
+
+
+
+
 
 
 ### 🗃️ Folder structure
