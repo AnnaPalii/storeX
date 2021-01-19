@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 import { ForwardRefInput, FormBtn } from "../components/Form";
-
-
+import axios from "axios"
 //prop drill the userID as well so in our API call we can just simply findOne({ _id: UserId})
 //then every comment associated with that id can showcase
 function Comments({ username }) {
@@ -15,7 +14,8 @@ function Comments({ username }) {
 	const [formObject, setFormObject] = useState({
 	body: "",
 	username: "",
-	zipcode: ""
+	zipcode: "",
+	image: ""
 	});
 	
    // get input element ref for focus
@@ -66,7 +66,8 @@ function Comments({ username }) {
 		if (formObject.body) {
 			API.saveComment({
 				body: formObject.body,
-				zipcode: formObject.zipcode
+				zipcode: formObject.zipcode,
+				imageUrl:formObject.image
 			})
             .then(loadComments)
             .then(() => setFormObject({
@@ -77,6 +78,17 @@ function Comments({ username }) {
 		}
 	}
 
+	function handleImage(e){
+		const files = e.target.files[0];
+		console.log(files)
+		let formData = new FormData();
+			formData.append("file", files)
+			formData.append("upload_preset", "storexapp")
+			console.log(formData);
+			axios.post("https://api.cloudinary.com/v1_1/storexapp/image/upload", formData)
+				.then(res => setFormObject({...formObject, image:res.data.url}))
+				.then(res => console.log(formObject))
+	}
 	return <>
 
 	<Row>
@@ -91,6 +103,7 @@ function Comments({ username }) {
 					<Col size='sm-12'>
 						<ForwardRefInput ref={ titleInputElRef } value={formObject.body} onChange={handleInputChange} name='body' placeholder='your space description here' />
 						<ForwardRefInput ref={ titleInputElRef } value={formObject.zipcode} onChange={handleInputChange} name='zipcode' placeholder='your zip here' />
+						<input type="file" className="form-control-file" id="StorePicFile" onChange={handleImage}/>
 					</Col>
 					<FormBtn
 						disabled={!formObject.body}
@@ -106,6 +119,7 @@ function Comments({ username }) {
 				{comments.length ? (
 					<Table>
 						<Tr>
+						<Td>Image</Td>
 						<Td>Description</Td>
 						<Td>Zip code</Td>
 						<Td>Date Posted</Td>

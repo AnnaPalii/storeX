@@ -21,9 +21,9 @@ function Comment() {
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-            <mainCard heading={comment.username}>
+            <Card heading={comment.username} imageUrl={comment.imageUrl}>
               {comment.body}
-            </mainCard>
+            </Card>
             </article>
           </Col>
         </Row>

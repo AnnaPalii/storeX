@@ -6,7 +6,7 @@ import { Table, Tr, Td } from "../components/Table";
 import Button from 'react-bootstrap/Button'
 
 // pass the _id of the user
-function Listings({ username }) {
+function Listings({ username, _id }) {
 	// Setting our component's initial state
 	const [comments, setComments] = useState([]);
 	const [formObject, setFormObject] = useState({
@@ -76,7 +76,9 @@ function Listings({ username }) {
 								{{pathname:'/bookings/'+comment._id,
 								state:{id:comment._id,
 								body:comment.body}}}>
-                                    Request Booking 
+									{ comment.status.filter(s => s.requestingUserId == _id).length > 0
+									? comment.status.filter(s => s.requestingUserId == _id)[0]['requested']
+									: "Request Booking" }
                                     </Link>
 								</Td>
 							</Tr>
