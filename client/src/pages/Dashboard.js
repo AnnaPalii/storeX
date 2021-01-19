@@ -77,7 +77,12 @@ useEffect(() => {
 
 
     return <>
-        <Row><h3>Dashboard Page</h3></Row>
+        <Row>
+		<header style={{ textAlign: "center", fontSize:"70px", display: "block", padding: 20 }}>
+			My Requests
+		</header>
+        </Row>
+        
         <Row>
 			<Col size='md-12'>
 				{Object.keys(requests).length ? (

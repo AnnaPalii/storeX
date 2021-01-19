@@ -6,6 +6,8 @@ import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 import { ForwardRefInput, FormBtn } from "../components/Form";
 import axios from "axios"
+import Button from 'react-bootstrap/Button'
+
 //prop drill the userID as well so in our API call we can just simply findOne({ _id: UserId})
 //then every comment associated with that id can showcase
 function Comments({ username }) {
@@ -103,14 +105,38 @@ function Comments({ username }) {
 					<Col size='sm-12'>
 						<ForwardRefInput ref={ titleInputElRef } value={formObject.body} onChange={handleInputChange} name='body' placeholder='your space description here' />
 						<ForwardRefInput ref={ titleInputElRef } value={formObject.zipcode} onChange={handleInputChange} name='zipcode' placeholder='your zip here' />
-						<input type="file" className="form-control-file" id="StorePicFile" onChange={handleImage}/>
-					</Col>
-					<FormBtn
+						<div className="input-group">
+						<div className="input-group-prepend">
+						<span className="input-group-text" id="inputGroupFileAddon01">
+						Upload
+						</span>
+						</div>
+						<div className="custom-file">
+						<input
+						type="file"
+						className="custom-file-input"
+						id="StorePicFile" 
+						onChange={handleImage}
+						aria-describedby="inputGroupFileAddon01"
+						/>
+						<label className="custom-file-label" htmlFor="inputGroupFile01">
+						Choose file
+						</label>
+						</div>
+						</div>
+						<div>
+						<Button
+						variant="secondary" size="lg" 
+						style={{marginTop: 10,
+							padding: 10,}} 
 						disabled={!formObject.body}
 						disabled={!formObject.zipcode}
 						onClick={handleFormSubmit}>
 						Submit your listing
-					</FormBtn>
+					   </Button>
+					   </div>
+					</Col>
+
 				</form>
 			</Col>
 		</Row>,
@@ -119,7 +145,6 @@ function Comments({ username }) {
 				{comments.length ? (
 					<Table>
 						<Tr>
-						<Td>Image</Td>
 						<Td>Description</Td>
 						<Td>Zip code</Td>
 						<Td>Date Posted</Td>

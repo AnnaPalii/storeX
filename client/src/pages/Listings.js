@@ -3,7 +3,7 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
-import Button from 'react-bootstrap/Button'
+
 
 // pass the _id of the user
 function Listings({ username, _id }) {
@@ -39,8 +39,6 @@ function Listings({ username, _id }) {
 					<Col size='sm-12'>
                     <header style={{ textAlign: "center", fontSize:"70px", display: "block", padding: 20 }}> Available Listings</header>
 					</Col>
-					<Button href="/dashboard" variant="secondary" size="lg">
-					See my requests for booking</Button>
 				</section>
 				
 			</Col>
