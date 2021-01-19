@@ -69,7 +69,7 @@ function Booking (props) {
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-            <Card heading={booking._id}>
+            <Card heading={booking._id} imageUrl={booking.imageUrl}>
               {booking.body}
               <Datapicker setBookingDates={setBookingDates} />
               <br/>
