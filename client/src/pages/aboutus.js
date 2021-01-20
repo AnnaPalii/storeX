@@ -3,11 +3,11 @@ import React from "react";
 
 export const AboutUs = () => {
     return <>
-            <h3>About StoreX</h3>
+            <h3 >About StoreX</h3>
             <br>
             </br>
 
-            <h4 style={{ textAlign: "justify", display: "block", color: "#4f4147"}}>
+            <h4>
             StoreX is a community oriented platform to simplify your life. We will connect you with the perfect host that will make sure your belongings are cared for and well kept. <br></br>
             <br>
             </br>

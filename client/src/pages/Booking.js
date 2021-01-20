@@ -62,7 +62,7 @@ function Booking (props) {
     return <>
 
           <Col size='sm-12'>
-          <header style={{ textAlign: "center", fontSize:"70px", display: "block", padding: 20 }}> Booking Page</header>
+          <header style={{ textAlign: "left", fontSize:"40px", display: "block", padding: 20 }}> Book This Space</header>
 					</Col>
         <Container fluid>
         <p></p>
@@ -73,7 +73,7 @@ function Booking (props) {
               {booking.body}
               <Datapicker setBookingDates={setBookingDates} />
               <br/>
-              <Button variant="primary" size="lg" onClick={book_store} href="/listings">
+              <Button variant="secondary" size="lg" style={{marginTop: 10, padding: 10,}} onClick={book_store} href="/listings">
               Request to book this listing
               </Button>
             </Card>

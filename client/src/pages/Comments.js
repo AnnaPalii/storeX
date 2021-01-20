@@ -94,7 +94,7 @@ function Comments({ username }) {
 	return <>
 
 	<Row>
-		<header style={{ textAlign: "center", fontSize:"70px", display: "block", padding: 20 }}>
+		<header style={{ textAlign: "center", fontSize:"40px", display: "block", padding: 20 }}>
 			Post Your Space
 		</header>
 	</Row>
@@ -156,7 +156,7 @@ function Comments({ username }) {
 								<Td>
 									<Link
 										to={"/comments/" + comment._id}
-										style={{ textAlign: "left", display: "block", padding: 20 }}>
+										style={{  color: '#000', textAlign: "left", display: "block", padding: 20 }}>
 										<strong>{comment.username}:</strong> {comment.body}
 									</Link>
 								</Td>
@@ -164,7 +164,7 @@ function Comments({ username }) {
 								<Td>
 									{new Date(comment.date).toDateString()}
 								</Td>
-								<Td> <Link to='/dashboard' >{comment.status.length} </Link></Td>
+								<Td> <Link to={'/dashboard'} style={{  color: '#000'}}>{comment.status.length} </Link></Td>
 								<Td>
 									<DeleteBtn onClick={() => deleteComment(comment._id)} />
 								</Td>
