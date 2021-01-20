@@ -2,7 +2,7 @@ import React from "react";
 import Image from 'react-bootstrap/Image';
 function Card(props) {
   return (
-    <div className="card text-center text-light bg-dark m-3">
+    <div className="card text-center text-dark bg-light m-3">
       <div className="card-header text-left">
         <strong>{props.heading}: </strong>
       </div>

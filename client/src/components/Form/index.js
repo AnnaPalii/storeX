@@ -30,8 +30,10 @@ export function FormBtn(props) {
 		<button
 			{...props}
 			style={{ marginLeft: 10 }}
-			className='btn btn-dark rounded-0'>
+			className='btn btn-secondary rounded-0'>
 			{props.children}
 		</button>
 	);
 }
+
+

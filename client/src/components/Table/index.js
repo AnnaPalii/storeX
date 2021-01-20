@@ -2,7 +2,7 @@ import React from "react";
 
 export function Table({ children }) {
 	return (
-		<table className=" table table-dark table-striped text-center text-break">
+		<table className=" table table-borderless table-light table-striped text-center text-break">
 			<tbody> 
             {children}
          </tbody>

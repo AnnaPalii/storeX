@@ -95,6 +95,7 @@ function App() {
 		 <Footer />
 		</Router>
 		
+		
 
 	);
 }

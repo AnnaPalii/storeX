@@ -37,7 +37,7 @@ function Listings({ username, _id }) {
 			<Col size='md-12'>
 				<section>
 					<Col size='sm-12'>
-                    <header style={{ textAlign: "center", fontSize:"70px", display: "block", padding: 20 }}> Available Listings</header>
+                    <header style={{ textAlign: "left", fontSize:"40px", display: "block", padding: 20 }}> Available Listings</header>
 					</Col>
 				</section>
 				
@@ -60,7 +60,7 @@ function Listings({ username, _id }) {
 								<Td>
 									<Link
 										to={"/comments/" + comment._id}
-										style={{ textAlign: "left", display: "block" }}>
+										style={{ color: '#000', textAlign: "center"}}>
 										{comment.body}
 									</Link>
 								</Td>
@@ -73,9 +73,10 @@ function Listings({ username, _id }) {
 								<Link to=
 								{{pathname:'/bookings/'+comment._id,
 								state:{id:comment._id,
-								body:comment.body}}}>
-									{ comment.status.filter(s => s.requestingUserId == _id).length > 0
-									? comment.status.filter(s => s.requestingUserId == _id)[0]['requested']
+								body:comment.body}}}
+								style={{ color: '#000', textAlign: "center"}}>
+									{ comment.status.filter(s => s.requestingUserId === _id).length > 0
+									? comment.status.filter(s => s.requestingUserId === _id)[0]['requested']
 									: "Request Booking" }
                                     </Link>
 								</Td>

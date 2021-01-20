@@ -64,7 +64,7 @@ class Login extends Component {
                 Log in
               </FormBtn>
              <Link to="/signup">
-               <FormBtn> Signup </FormBtn>
+               <FormBtn> Sign up </FormBtn>
              </Link>
             </form>
           </Col>
