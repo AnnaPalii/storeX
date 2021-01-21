@@ -11,8 +11,8 @@ return (
         <Button
         className='btns'
         buttonStyle='btn--primary'
-        buttonSize='btn--large'
-        >SignUp</Button>
+        buttonSize='btn--medium'
+        >Start Storing</Button>
     </div>
     </div>
 );
