@@ -4,7 +4,7 @@ import Comments from "./pages/Comments";
 import { Container } from "./components/Grid";
 import Comment from "./pages/Comment";
 import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import SignIn from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 import AboutUs from "./pages/aboutus";
 import Navbar from "./components/Navbar";
@@ -60,10 +60,11 @@ function App() {
 						exact
 						path='/signup'
 						render={ props => (
-							<Signup
+							<SignIn
 								{...props}
 								authenticate={authenticate}
-								user={userState}
+								user={userState} 
+								setUserState={setUserState}
 							/>
 						)}
 					/>
@@ -92,6 +93,11 @@ function App() {
 				</Switch>
 			</Container>
          { userState.role === "Host" ? <Redirect to="/comments" /> : <Redirect to="/listings" />}
+		 { () => {
+			 if(userState.role === "Host"){
+				 <Redirect to="/comments" />
+			 }
+		 }}
 		 <Footer />
 		</Router>
 		
