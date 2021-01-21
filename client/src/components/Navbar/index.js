@@ -17,7 +17,6 @@ function Navbar () {
         setButton(true);
     }
     };
-
     useEffect(() => {
     showButton();
     }, []);
@@ -63,7 +62,7 @@ function Navbar () {
             <li>
                 <Link
                 to='/login'
-                className='nav-links-mobile'
+                className='nav-links'
                 onClick={closeMobileMenu}
                 >
                 Login
@@ -72,7 +71,7 @@ function Navbar () {
             <li>
                 <Link
                 to='/'
-                className='nav-links-mobile'
+                className='nav-links'
                 onClick={closeMobileMenu}
                 >
                 Log out
