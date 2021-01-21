@@ -9,7 +9,6 @@ return (
     <video src='/videos/video-1.mp4' autoPlay loop muted />
     <h2>Have space for happy moments</h2>
     <div className='hero-btns'>
-<<<<<<< HEAD
         {/* <Button
         className='sign-up-btn'
         buttonStyle='btn-secondary'
@@ -18,13 +17,13 @@ return (
     <button className="btn-secondary sign-up-button">
     Sign Up</button>
     </Link>
-=======
-        <Button
+
+        {/* <Button
         className='btns'
         buttonStyle='btn--primary'
         buttonSize='btn--medium'
-        >Start Storing</Button>
->>>>>>> 1e25b9693cb71afa4c1051e57a03d7e89617e8a7
+        >Start Storing</Button> */}
+
     </div>
     </div>
 )};
