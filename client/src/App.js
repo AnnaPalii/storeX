@@ -93,6 +93,11 @@ function App() {
 				</Switch>
 			</Container>
          { userState.role === "Host" ? <Redirect to="/comments" /> : <Redirect to="/listings" />}
+		 { () => {
+			 if(userState.role === "Host"){
+				 <Redirect to="/comments" />
+			 }
+		 }}
 		 <Footer />
 		</Router>
 		
