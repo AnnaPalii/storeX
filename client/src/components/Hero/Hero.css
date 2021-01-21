@@ -1,3 +1,4 @@
+
 video {
     object-fit: cover;
     width: 100%;
@@ -37,7 +38,6 @@ h2{
 
 .hero-btns {
     margin-top: 32px;
-    background-color: #8b94a3;
 }
 
 .hero-btns .btn {
@@ -121,4 +121,11 @@ h2{
     background-repeat: no-repeat;
     color: #fff;
     font-size: 100px;
+}
+.sign-up-button {
+    font-size: 20px;
+    padding: 15px 50px;
+    border-radius: 15px;
+    border: 1px solid rgb(193, 193, 193) !important;
+    background: #8e9eab;  
 }
