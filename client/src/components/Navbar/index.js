@@ -29,7 +29,7 @@ function Navbar () {
         <nav className='navbar'>
         <div className='navbar-container'>
             <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            Storex 
+            StorX 
             <i className="fas fa-laptop-house"></i>
             </Link>
             <div className='menu-icon' onClick={handleClick}>

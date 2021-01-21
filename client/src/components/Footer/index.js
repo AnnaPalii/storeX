@@ -8,7 +8,7 @@ return (
     <div className='footer-container'>
     <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
-        Join the StoreX newsletter to receive the latest listings in your area
+        Join the StorX newsletter to receive the latest listings in your area
         </p>
         <p className='footer-subscription-text'>
         You can unsubscribe at any time.
@@ -44,11 +44,11 @@ return (
         <div className='social-media-wrap'>
         <div className='footer-logo'>
             <Link to='/' className='social-logo'>
-            StoreX
+            StorX
             <i className="fas fa-laptop-house"></i>
             </Link>
         </div>
-        <small className='website-rights'>StoreX © 2021</small>
+        <small className='website-rights'>StorX © 2021</small>
         <div className='social-icons'>
             <Link
             className='social-icon-link facebook'
