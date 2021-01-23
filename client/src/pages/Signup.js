@@ -53,7 +53,7 @@ class Signup extends Component {
         </Row>
 
         <Row>
-          <select value={this.state.role} onChange={this.handleInputChange}>
+          <select name="role" value={this.state.role} onChange={this.handleInputChange}>
             <option value="Guest">Guest</option>
             <option value="Host">Host</option>
             </select></Row>
@@ -205,7 +205,7 @@ render(){
   <Signup user={this.props.userState}
           authenticate={this.props.authenticate} />
   <Login setUserState={this.props.setUserState}
-         authenticate={this.props.authenticate}
+        authenticate={this.props.authenticate}
     />
 </div>
   )
